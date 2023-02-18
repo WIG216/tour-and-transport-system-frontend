@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css2?family=Island+Moments&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --primary-color: #33698e;
+  --secondary-color: #2d73a3;
+  --heading-color: #62c3d2;
+  --text-color: #6e7074;
+  --font-name: "Montserrat", sans-serif;
+  --subtitle-font-name: "Island Moments", cursive;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-name);
+}
+
+section {
+  padding: 50px 0px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: black;
+  font-weight: bold;
+}
+
+a {
+  text-decoration: none !important;
+  color: unset;
+}
+
+ul {
+  list-style: none;
+}
+
+.primary-btn {
+  background: var(--secondary-color) !important;
+  border: none !important;
+  border-radius: 50px !important;
+  padding: 0.4rem 1.5rem !important;
+}
+
+.primary-btn a {
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: #fff;
+}
+.primary-btn a:hover {
+  color: inherit;
+}
+.secondary-btn {
+  background: transparent !important;
+  color: #0b2727 !important;
+  border: none !important;
+  font-weight: 500 !important;
+}
+
+.secondary-btn a {
+  text-decoration: none;
+  font-size: 1.1rem;
+  color: var(--heading-color);
+}
+
+.secondary-btn a:hover {
+  color: inherit;
+}
+
+.section-subtitle {
+  background: var(--secondary-color);
+  font-family: var(--subtitle-font-name);
+  width: max-content;
+  padding: 0px 0.5rem;
+  padding-right: 1rem;
+
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 1.7rem;
+  color: var(--heading-color);
+}
+
+.services-subtitle{
+  font-family: var(--subtitle-font-name);
+}
+
+.tour-img image{
+  width: 100%;
+  border-radius: 5px 5px 0 0;
+}
+
+.card{
+  border: none !important;
+}
+
+.tour-img{
+  position: relative;
+}
+
+.tour-img span {
+  position: absolute;
+  z-index: 10;
+  height: max-content;
+  width: max-content;
+  right: 0;
+  bottom: 0;
+  background-color: var(--primary-color);
+  border-radius: 3px 0 0 0  ;
+}
+
+.card-top span i{
+  color: var(--secondary-color)
+}
+
+.tour-rating{
+  font-size: .9rem;
+  color: var(--text-color);
+}
+
+.tour-location{
+  color: var(--heading-color);
+  font-weight: 500;
+  font-size: .9rem;
+}
+
+.tour-rating i, .tour-location i{
+  font-size: 1rem;
+}
+
+.tour-title{
+  margin-top: 1rem;
+  font-size: 1.1rem;
+}

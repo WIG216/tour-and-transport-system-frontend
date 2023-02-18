@@ -1,0 +1,48 @@
+.header{
+    width: 100%;
+    height: 80px;
+    line-height: 80px;
+}
+
+/* .logo img{
+    width: 30%;
+} */
+
+.menu{
+    margin-bottom: 0;
+}
+
+.nav-item a{
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    font-style: 1.1rem;
+}
+li a{
+    text-decoration: none;
+}
+.nav-item a:hover{
+    color: inherit;
+}
+
+.nav-item a.active-link{
+    color: var(--secondary-color)
+}
+
+.mobile-menu{
+    font-size: 1.3rem;
+    color: var(--header-color);
+    display: none;
+}
+
+.sticky-header{
+    width: 100%;
+    height: 80px;
+    line-height: 80px;
+    background: #fff;
+    position: sticky;
+    top: 0;
+    left: 0;
+    box-shadow: 3px 3px 8px -3px #ddd;
+    z-index: 90;
+}

@@ -1,0 +1,10 @@
+.search-bar{
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+    border-radius: 50px;
+    width: max-content;
+}
+
+.search-icon i{
+    border-radius: 10px 5px 10px 5px;
+    cursor: pointer;
+}
