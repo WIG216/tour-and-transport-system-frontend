@@ -14,6 +14,7 @@ import DashboardLanding from "./pages/dashboard/dashboardLanding";
 import Vehicle from "./pages/dashboard/vehicle";
 import BookingDriver from "./pages/dashboard/bookingDriver";
 import { BrowserRouter } from "react-router-dom";
+import Protected from "./components/Protected";
 
 function App() {
   return (
@@ -28,9 +29,9 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/tour/search" element={<SearchResultList />} />
         <Route path="/contact" element={<ContactUs />} />
-        <Route path="/dashboard" element={<DashboardLanding />} />
-        <Route path="/vehicle" element={<Vehicle />} />
-        <Route path="/booking_driver" element={<BookingDriver />} />
+        <Route path="/dashboard" element={ <Protected><DashboardLanding /></Protected>} />
+        <Route path="/vehicle" element={<Protected><Vehicle /></Protected>} />
+        <Route path="/booking" element={<Protected><BookingDriver /></Protected>} />
       </Routes>
     </BrowserRouter>
   );

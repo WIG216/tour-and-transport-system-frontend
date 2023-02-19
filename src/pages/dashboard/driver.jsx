@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
-import Layout from '../../../components/dashboard/Layout/Layout';
-import { AddDriverModal, DeleteDriverModal, EditDriverModal } from '../../../components/dashboard/ui/DriverModal/index';
+import Layout from '../../components/dashboard/Layout/Layout';
+import { AddDriverModal, DeleteDriverModal, EditDriverModal } from '../../components/dashboard/ui/DriverModal/index';
 import Button from '../../../components/dashboard/form/components/Button/Button';
 import Form from '../../../components/dashboard/form/components/Form/Form';
 import FormField from '../../../components/dashboard/form/components/FormField/FormField';

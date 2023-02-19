@@ -36,7 +36,7 @@ function Login() {
                 storeToken(res.data.accessToken);
                 navigate('/dashboard');
 
-                toast.success("Logged In Succesfuly", {
+                toast.success("Logged In Successfully", {
                     pauseOnHover: false,
                     closeOnClick: true,
                 })
