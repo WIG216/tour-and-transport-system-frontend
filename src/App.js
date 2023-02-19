@@ -1,8 +1,39 @@
 import "./App.css";
-import { Layout } from "./components/Layout/Layout";
+import React from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
+
+import Home from "./pages/Home";
+import Tours from "./pages/Tours";
+import TourDetails from "./pages/TourDetails";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
+import About from "./pages/About";
+import SearchResultList from "./pages/SearchResultList";
+import ContactUs from "./pages/ContactUs";
+import DashboardLanding from "./pages/dashboard/dashboardLanding";
+import Vehicle from "./pages/dashboard/vehicle";
+import BookingDriver from "./pages/dashboard/bookingDriver";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
-  return <Layout />;
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Navigate to="/home" />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/tours" element={<Tours />} />
+        <Route path="/tour/:id" element={<TourDetails />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/tour/search" element={<SearchResultList />} />
+        <Route path="/contact" element={<ContactUs />} />
+        <Route path="/dashboard" element={<DashboardLanding />} />
+        <Route path="/vehicle" element={<Vehicle />} />
+        <Route path="/booking_driver" element={<BookingDriver />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;

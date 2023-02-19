@@ -22,7 +22,11 @@
     "web-vitals": "^2.1.4",
     "apisauce": "^2.1.6",
     "firebase": "^9.16.0",
-    "jwt-decode": "^3.1.2"
+    "jwt-decode": "^3.1.2",
+    "react-icons": "^4.7.1",
+    "@tippyjs/react": "^4.2.6",
+    "moment": "^2.29.4",
+    "react-spinners": "^0.13.8"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -1,8 +1,13 @@
 import React from 'react'
+import {Layout} from '../components/Layout/Layout'
+
 
 const SearchResultList = () => {
   return (
-    <div>SearchResultList</div>
+    <Layout>
+          <div>SearchResultList</div>
+
+    </Layout>
   )
 }
 

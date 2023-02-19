@@ -2,14 +2,15 @@ import React from 'react'
 
 import {Header} from './../Header/Header'
 import {Footer} from './../Footer/Footer';
-import Routers from '../../router/Routers';
+import DashboardLayout from '../dashboard/Layout/Layout';
 
-export const Layout = () => {
+export const Layout = ({children}) => {
   return (
     <div className=''>
       <Header />
-        <Routers />
+      {children}
       <Footer />
+
     </div>
   )
 }

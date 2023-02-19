@@ -11,12 +11,13 @@ import FeaturedTourList from '../components/Featured-tours/FeaturedTourList';
 import { Container, Row, Col } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import callToAction from '../assets/images/gallery-01.jpg'
+import {Layout} from '../components/Layout/Layout'
 
 const Home = () => {
   const [videoModalOpen, setVideoModalOpen] = useState(false);
 
   return (
-    <>
+    <Layout>
       <section id="hero-static" className="hero-static d-flex align-items-center">
         <div className="container flex justify-center flex-col items-center text-center relative" data-aos="zoom-out">
           <h2>Welcome to <span>Trams</span></h2>
@@ -72,7 +73,7 @@ const Home = () => {
 
       </div>
     </section>
-    </>
+    </Layout>
   )
 }
 

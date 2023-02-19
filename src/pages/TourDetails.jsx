@@ -1,8 +1,12 @@
 import React from 'react'
+import {Layout} from '../components/Layout/Layout'
+
 
 const TourDetails = () => {
   return (
-    <div>TourDetails</div>
+    <Layout>
+      <div>TourDetails</div>
+    </Layout>
   )
 }
 
