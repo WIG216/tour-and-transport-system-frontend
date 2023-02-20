@@ -9,7 +9,7 @@ import AuthLayout from '../components/dashboard/form/components/Layout/AuthLayou
 import { Link } from 'react-router-dom';
 import ErrorMessage from '../components/dashboard/form/components/ErrorMessage';
 import { loginUser } from '../db/auth';
-import { storeToken, getToken } from '../utils/storage';
+import { storeToken, getToken, isDriver, isAdmin } from '../utils/storage';
 import { toast } from 'react-toastify';
 
 
@@ -34,7 +34,12 @@ function Login() {
             if (res.ok) {
                 console.log(res);
                 storeToken(res.data.accessToken);
-                navigate('/dashboard');
+                if(isDriver()){
+                    // console.log(isDriver())
+                    navigate('/dashboard')
+                }else{
+                    navigate("/home")
+                }
 
                 toast.success("Logged In Successfully", {
                     pauseOnHover: false,
@@ -56,7 +61,15 @@ function Login() {
 
 
     if (getToken() != null) {
-        return <Navigate to="/dashboard" replace />
+        if(isDriver())
+        {
+            return <Navigate to="/dashboard" replace />
+        }else if(isAdmin()){
+            return <Navigate to="/dashboard" replace />
+
+        }else{
+            return <Navigate to="/home" replace />
+        }
     }
 
     return (

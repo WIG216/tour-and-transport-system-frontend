@@ -228,7 +228,7 @@ function Driver() {
                             </tr>
                         )}
                     </tbody>
-                </table>
+                </table>  
             </div>
             {showAddModal && <AddDriverModal onDriverAdded={handleDriverAdded} onClose={toggleAddModal} />}
             {editModal && <EditDriverModal onDriverAdded={handleDriverUpdated} onClose={toggleAddModal} />}

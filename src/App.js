@@ -1,6 +1,8 @@
 import "./App.css";
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import Home from "./pages/Home";
 import Tours from "./pages/Tours";
@@ -15,25 +17,54 @@ import Vehicle from "./pages/dashboard/vehicle";
 import BookingDriver from "./pages/dashboard/bookingDriver";
 import { BrowserRouter } from "react-router-dom";
 import Protected from "./components/Protected";
+// import AddVehicle from "./pages/dashboard/AddVehicle";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Navigate to="/home" />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/tours" element={<Tours />} />
-        <Route path="/tour/:id" element={<TourDetails />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/tour/search" element={<SearchResultList />} />
-        <Route path="/contact" element={<ContactUs />} />
-        <Route path="/dashboard" element={ <Protected><DashboardLanding /></Protected>} />
-        <Route path="/vehicle" element={<Protected><Vehicle /></Protected>} />
-        <Route path="/booking" element={<Protected><BookingDriver /></Protected>} />
-      </Routes>
-    </BrowserRouter>
+    <div className="App">
+      <div className="main">
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Navigate to="/home" />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/tours" element={<Tours />} />
+            <Route path="/tour/:id" element={<TourDetails />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/tour/search" element={<SearchResultList />} />
+            <Route path="/contact" element={<ContactUs />} />
+            <Route
+              path="/dashboard"
+              element={
+                <Protected>
+                  <DashboardLanding />
+                </Protected>
+              }
+            />
+            <Route
+              path="/vehicle"
+              element={
+                <Protected>
+                  <Vehicle />
+                </Protected>
+              }
+            />
+            
+            <Route
+              path="/booking"
+              element={
+                <Protected>
+                  <BookingDriver />
+                </Protected>
+              }
+            />
+          </Routes>
+        </BrowserRouter>
+      </div>
+      <ToastContainer />
+
+    </div>
   );
 }
 

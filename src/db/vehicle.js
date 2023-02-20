@@ -1,11 +1,11 @@
 import api from "./apiClient";
 
 const createVehicle = (data) => {
-  return api.post("/vehicles/", data);
+  return api.post("/vehicles", data);
 };
 
 const getVehicles = () => {
-  return api.get("/vehicles ");
+  return api.get("/vehicles/");
 };
 
 const updateVehicle = (id, data) => {

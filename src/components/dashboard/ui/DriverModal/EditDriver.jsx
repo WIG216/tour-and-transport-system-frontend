@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import * as Yup from 'yup';
-import Form from '../../form/components/Form/Form';
-import FormField from '../../form/components/FormField/FormField';
-import Button from '../../form/components/Button/Button';
-import ErrorMessage from '../../form/components/ErrorMessage/ErrorMessage';
+import Form from '../../form/components/Form';
+import FormField from '../../form/components/FormField';
+import Button from '../../form/components/Button';
+import ErrorMessage from '../../form/components/ErrorMessage';
 import { ImCancelCircle } from 'react-icons/im';
 import { MdOutlineAdd } from "react-icons/md";
 import ButtonHome from "../../ButtonHome/Button";
@@ -11,7 +11,7 @@ import ButtonHome from "../../ButtonHome/Button";
 
 import { toast } from 'react-toastify';
 
-import { updateDriver } from '../../../../services/driver';
+import { updateVehicle } from '../../../../db/vehicle';
 
 const initialValues = {
     driverName: '',
@@ -39,7 +39,7 @@ function EditDriverModal({ onClose, onDriverAdded }) {
     const handleEditDriver = (values) => {
         console.log('Driver info: ', values);
 
-        updateDriver(values).then((res) => {
+        updateVehicle(values).then((res) => {
             if (res.ok) {
                 toast.success(res.message, {
                     pauseOnHover: false,

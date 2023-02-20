@@ -1,4 +1,7 @@
 import jwtDecode from 'jwt-decode';
+import { Navigate } from "react-router";
+import { useNavigate } from "react-router-dom";
+
 
 const key = "authToken";
 
@@ -21,7 +24,6 @@ const getToken = () => {
 const getUser = () => {
     const token =  getToken();
 
-
     return token ? jwtDecode(token) : null;
 }
 
@@ -29,14 +31,15 @@ const isDriver = () => {
     const token =  getToken();
     let user = jwtDecode(token);
     console.log('USER IN ISCHECK',  user)
+
     return user?.role == 'driver' ? true : false;
 }
 
-const isPassenger = () => {
+const isAdmin = () => {
     const token =  getToken();
     let user = jwtDecode(token);
     // console.log('USER IN ISCHECK',  user)
-    return user?.role == 'passenger' ? true : false;
+    return user?.role == 'admin' ? true : false;
 }
 
 const removeToken = async ()=> {
@@ -47,4 +50,4 @@ const removeToken = async ()=> {
     }
 }
 
-export { getUser, getToken, removeToken, storeToken, isDriver, isPassenger }
+export { getUser, getToken, removeToken, storeToken, isDriver, isAdmin }

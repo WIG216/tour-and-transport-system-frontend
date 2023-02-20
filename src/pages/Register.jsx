@@ -20,10 +20,11 @@ import { registerUser } from '../db/auth';
 import { toast } from 'react-toastify';
 import Uploader from '../components/dashboard/form/components/upload';
 
-const initialValues= {
+const initialValues = {
     username: '',
     email: '',
     password: '',
+    role: '',
     imageUrl: '',
 }
 
@@ -88,6 +89,8 @@ const Register = () => {
         username: Yup.string().required('Name field is required'),
         email: Yup.string().email('Enter a valid email').required('Email field is required'),
         password: Yup.string().min(4, 'Password must be above 4 characters').required('Password Required'),
+        role: Yup.string(),
+
         // imageUrl: Yup.string().required("Image is required")
     })
 
@@ -125,34 +128,37 @@ const Register = () => {
     }
     useEffect(() => {
         console.log('ran')
-    },[]);
+    }, []);
 
 
     return (
         <AuthLayout title="Create Account">
             <form action="" className="auth-form">
                 <p>Register</p>
-                <Form 
+                <Form
                     initialValues={initialValues}
                     onSubmit={handleRegister}
                     validationSchema={validationSchema}
                 >
 
-                        <FormField  name="username" type="text" placeholder="Username"/>
+                    <FormField name="username" type="text" placeholder="Username" />
 
-                        <FormField  name="email" type="email" placeholder="Email"/>
+                    <FormField name="email" type="email" placeholder="Email" />
 
-                        <FormField  name="password" type="password" placeholder="Password"/>
+                    <FormField name="role" type="text" placeholder="Role" />
+                    
+                    <FormField name="password" type="password" placeholder="Password" />
 
-                        <div className="pb-4">
+
+                    <div className="pb-4">
                         {!showPreview && <div className="form-field-upload">
                             {/* <p className="label-text">Upload Video Content: </p> */}
                             <div className="" onClick={handleSelectImage}>
-                                {!isUploadingImage && 
-                                        <div className='flex items-center px-3 py-2 mx-auto mt-6 text-center bg-white border-2 border-dashed rounded-lg cursor-pointer dark:border-gray-600 dark:bg-gray-900'>
-                                            <FaCloudUploadAlt size={35} color="#61c3d2" /> 
-                                            <h2 class="mx-3 text-gray-400">Profile Photo</h2>
-                                        </div>
+                                {!isUploadingImage &&
+                                    <div className='flex items-center px-3 py-2 mx-auto mt-6 text-center bg-white border-2 border-dashed rounded-lg cursor-pointer dark:border-gray-600 dark:bg-gray-900'>
+                                        <FaCloudUploadAlt size={35} color="#61c3d2" />
+                                        <h2 class="mx-3 text-gray-400">Profile Photo</h2>
+                                    </div>
                                 }
                                 {isUploadingImage && <div style={{ width: '80%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
                                     <BeatLoader
@@ -180,16 +186,16 @@ const Register = () => {
                             <image controls width="100%" height={'100%'} src={imageUrl}></image>
                         </div>}
                     </div>
-                        {/* <FormField  name="confirm_password" type="password" placeholder="Confirm password"/> */}
+                    {/* <FormField  name="confirm_password" type="password" placeholder="Confirm password"/> */}
 
-                        <Button title="Register"/>
-                        </Form>
-                </form>
-                <p className="u-padding-bottom-small label-link">
-                    Already have an account? <Link to="/login" className="text-primary">Sign in</Link>
-                </p>
-\
-            </AuthLayout>
+                    <Button title="Register" />
+                </Form>
+            </form>
+            <p className="u-padding-bottom-small label-link">
+                Already have an account? <Link to="/login" className="text-primary">Sign in</Link>
+            </p>
+            \
+        </AuthLayout>
 
     );
 }

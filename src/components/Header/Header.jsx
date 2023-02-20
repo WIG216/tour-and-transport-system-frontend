@@ -1,10 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useNavigate } from 'react-router-dom';
 // import { useState } from "react";
 // import { Container, Row, Button } from 'reactstrap';
 // import './Header.css'
+import { toast } from 'react-toastify';
+
 
 import logo from '../../assets/images/logo.png'
+import { getToken, removeToken } from '../../utils/storage';
 
 
 const navLinks = [
@@ -22,7 +25,21 @@ const navLinks = [
   }
 ]
 
+
+
+
+
 export const Header = () => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    removeToken();
+    navigate('/');
+    toast.success("User Logged out", {
+        pauseOnHover: false,
+        closeOnClick: true,
+      })
+}
 
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
@@ -49,6 +66,24 @@ export const Header = () => {
     document.addEventListener('keydown', keyHandler);
     return () => document.removeEventListener('keydown', keyHandler);
   });
+
+  function verifyLogin(){
+    if(!getToken()){
+      return (
+        <>
+        <li>
+                  <Link to="/login" className="font-medium no-underline text-black  hover:text-gray-200 px-4 py-3 flex items-center transition duration-150 ease-in-out">Sign in</Link>
+                </li>
+                <li>
+                  <Link to="/register" className="btn-sm text-white bg-primaryColor hover:bg-slate-700 ml-3 p-2 rounded-lg no-underline">Sign up</Link>
+                </li>
+        </>
+      )
+    }else{
+        // <button onClick={handleLogout()} className="font-medium no-underline text-black  hover:text-gray-200 px-4 py-3 flex items-center transition duration-150 ease-in-out">Logout</button>
+      
+    }
+  }
 
   return (
     <header className="absolute w-full z-30">
@@ -81,12 +116,9 @@ export const Header = () => {
 
             {/* Desktop sign in links */}
             <ul className="flex grow justify-end flex-wrap items-center">
-              <li>
-                <Link to="/login" className="font-medium no-underline text-black  hover:text-gray-200 px-4 py-3 flex items-center transition duration-150 ease-in-out">Sign in</Link>
-              </li>
-              <li>
-                <Link to="/register" className="btn-sm text-white bg-primaryColor hover:bg-slate-700 ml-3 p-2 rounded-lg no-underline">Sign up</Link>
-              </li>
+            
+
+              {verifyLogin()}
             </ul>
 
           </nav>
@@ -113,7 +145,7 @@ export const Header = () => {
                     <NavLink to={item.path} className={navClass=>navClass.isActive ? 'text-primaryColor active-link no-underline': 'no-underline text-textColor'}>{item.display}</NavLink>
                   </li>
                 ))
-            }
+              }
                 <li className="py-2 my-2 border-t border-b border-gray-700">
                   <span className="flex text-gray-300 py-2">Support</span>
                   <ul className="pl-4">
