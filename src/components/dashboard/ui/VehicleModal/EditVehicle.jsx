@@ -22,7 +22,7 @@ const initialValues = {
 }
 
 
-function EditDriverModal({ onClose, onDriverAdded }) {
+function EditVehicleModal({ onClose, onVehicleAdded }) {
     const [error, setError] = useState(null);
 
 
@@ -36,8 +36,8 @@ function EditDriverModal({ onClose, onDriverAdded }) {
     })
 
 
-    const handleEditDriver = (values) => {
-        console.log('Driver info: ', values);
+    const handleEditVehicle = (values) => {
+        console.log('Vehicle info: ', values);
 
         updateVehicle(values).then((res) => {
             if (res.ok) {
@@ -45,7 +45,7 @@ function EditDriverModal({ onClose, onDriverAdded }) {
                     pauseOnHover: false,
                     closeOnClick: true,
                 })
-                onDriverAdded();
+                onVehicleAdded();
             } else {
                 console.log(res)
                 toast.error(res.message, {
@@ -77,7 +77,7 @@ function EditDriverModal({ onClose, onDriverAdded }) {
                             {/*header*/}
                             <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
                                 <h3 className="text-3xl font-semibold">
-                                    Add Driver
+                                    Add Vehicle
                                 </h3>
                                 {/* <button
                                         className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
@@ -95,23 +95,23 @@ function EditDriverModal({ onClose, onDriverAdded }) {
                                 {error && <ErrorMessage error={error} visible={true} />}
                                 <Form
                                     initialValues={initialValues}
-                                    onSubmit={handleEditDriver}
+                                    onSubmit={handleEditVehicle}
                                     validationSchema={validationSchema}
                                 >
 
 
-                                    <FormField name="driverName" type="text" placeholder="Driver Name" />
+                                    <FormField name="driverName" type="text" placeholder="Vehicle Name" />
 
                                     <FormField name="bdate" type="date" placeholder="Date of Birth" />
 
                                     <FormField name="email" type="email" placeholder="Email" />
                                     <FormField name="password" type="password" placeholder="Password" />
 
-                                    {/* <FormField name="driverImage" type="file" placeholder="Driver Image" /> */}
+                                    {/* <FormField name="driverImage" type="file" placeholder="Vehicle Image" /> */}
                                     <div className="flex justify-between p-6 border-t border-solid border-slate-200 rounded-b">
                                         <ButtonHome type='danger' onClicked={onClose} text='Close' />
 
-                                        <Button title="Update Driver" />
+                                        <Button title="Update Vehicle" />
 
                                     </div>
 
@@ -130,4 +130,4 @@ function EditDriverModal({ onClose, onDriverAdded }) {
 
 
 
-export default EditDriverModal;
+export default EditVehicleModal;

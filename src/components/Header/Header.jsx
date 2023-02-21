@@ -22,6 +22,14 @@ const navLinks = [
   {
     path: '/tours',
     display: 'Tour'
+  },
+  {
+    path: '/cars',
+    display: 'Car'
+  },
+  {
+    path: '/contact',
+    display: 'Contact Us'
   }
 ]
 
@@ -36,10 +44,10 @@ export const Header = () => {
     removeToken();
     navigate('/');
     toast.success("User Logged out", {
-        pauseOnHover: false,
-        closeOnClick: true,
-      })
-}
+      pauseOnHover: false,
+      closeOnClick: true,
+    })
+  }
 
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
@@ -67,21 +75,26 @@ export const Header = () => {
     return () => document.removeEventListener('keydown', keyHandler);
   });
 
-  function verifyLogin(){
-    if(!getToken()){
+  function verifyLogin() {
+    if (!getToken()) {
       return (
         <>
-        <li>
-                  <Link to="/login" className="font-medium no-underline text-black  hover:text-gray-200 px-4 py-3 flex items-center transition duration-150 ease-in-out">Sign in</Link>
-                </li>
-                <li>
-                  <Link to="/register" className="btn-sm text-white bg-primaryColor hover:bg-slate-700 ml-3 p-2 rounded-lg no-underline">Sign up</Link>
-                </li>
+          <li>
+            <Link to="/login" className="font-medium no-underline text-black  hover:text-gray-200 px-4 py-3 flex items-center transition duration-150 ease-in-out">Sign in</Link>
+          </li>
+          <li>
+            <Link to="/register" className="btn-sm text-white bg-primaryColor hover:bg-slate-700 ml-3 p-2 rounded-lg no-underline">Sign up</Link>
+          </li>
         </>
       )
-    }else{
-        // <button onClick={handleLogout()} className="font-medium no-underline text-black  hover:text-gray-200 px-4 py-3 flex items-center transition duration-150 ease-in-out">Logout</button>
-      
+    } else {
+      return(
+
+        <>
+          <Link to="/booking" className="btn-sm text-black  ml-3 p-2 rounded-lg border">Booking</Link>
+          <a onClick={handleLogout} className="text-black py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors">Logout</a>
+        </>
+      )
     }
   }
 
@@ -94,7 +107,7 @@ export const Header = () => {
           <div className="shrink-0 mr-4">
             {/* Logo */}
             <Link to="/" className="block" aria-label="trams">
-            <img src={logo} alt="" className='w-36' />
+              <img src={logo} alt="" className='w-36' />
 
             </Link>
           </div>
@@ -104,19 +117,19 @@ export const Header = () => {
 
             {/* Desktop menu links */}
             <ul className="flex grow justify-end flex-wrap items-center">
-            {
-                navLinks.map((item, index) =>(
+              {
+                navLinks.map((item, index) => (
                   <li className="nav-item text-gray-300 hover:text-gray-200 px-4 py-2 flex items-center transition duration-150 ease-in-out" key={index}>
-                    <NavLink to={item.path} className={navClass=>navClass.isActive ? 'text-primaryColor active-link no-underline': 'no-underline text-textColor'}>{item.display}</NavLink>
+                    <NavLink to={item.path} className={navClass => navClass.isActive ? 'text-primaryColor active-link no-underline' : 'no-underline text-textColor'}>{item.display}</NavLink>
                   </li>
                 ))
-            }
-              
+              }
+
             </ul>
 
             {/* Desktop sign in links */}
             <ul className="flex grow justify-end flex-wrap items-center">
-            
+
 
               {verifyLogin()}
             </ul>
@@ -137,15 +150,15 @@ export const Header = () => {
             </button>
 
             {/*Mobile navigation */}
-            <nav id="mobile-nav" ref={mobileNav} className="absolute top-full z-20 left-0 w-full px-4 sm:px-6 overflow-hidden transition-all duration-300 ease-in-out" style={mobileNavOpen ? { maxHeight: mobileNav.current.scrollHeight, opacity: 1 } : { maxHeight: 0, opacity: .8 } }>
+            <nav id="mobile-nav" ref={mobileNav} className="absolute top-full z-20 left-0 w-full px-4 sm:px-6 overflow-hidden transition-all duration-300 ease-in-out" style={mobileNavOpen ? { maxHeight: mobileNav.current.scrollHeight, opacity: 1 } : { maxHeight: 0, opacity: .8 }}>
               <ul className="shadow-sm bg-white backdrop-blur-sm px-4 py-2">
-              {
-                navLinks.map((item, index) =>(
-                  <li className="nav-item flex text-gray-300 hover:text-gray-200 py-2" key={index}>
-                    <NavLink to={item.path} className={navClass=>navClass.isActive ? 'text-primaryColor active-link no-underline': 'no-underline text-textColor'}>{item.display}</NavLink>
-                  </li>
-                ))
-              }
+                {
+                  navLinks.map((item, index) => (
+                    <li className="nav-item flex text-gray-300 hover:text-gray-200 py-2" key={index}>
+                      <NavLink to={item.path} className={navClass => navClass.isActive ? 'text-primaryColor active-link no-underline' : 'no-underline text-textColor'}>{item.display}</NavLink>
+                    </li>
+                  ))
+                }
                 <li className="py-2 my-2 border-t border-b border-gray-700">
                   <span className="flex text-gray-300 py-2">Support</span>
                   <ul className="pl-4">

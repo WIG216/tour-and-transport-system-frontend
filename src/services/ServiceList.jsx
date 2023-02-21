@@ -1,10 +1,13 @@
-import React from 'react'
 import ServiceCard from './ServiceCard'
 
 import weatherImg from '../assets/images/weather.png'
 import guideImg from '../assets/images/guide.png'
 import customizationImg from '../assets/images/customization.png'
 import { Col } from 'reactstrap'
+import React, { useState, useEffect } from 'react'
+import { getAllTour } from '../db/tour';
+import moment from 'moment';
+import { Link } from 'react-router-dom';
 
 const serviceData = [
     {
@@ -24,8 +27,30 @@ const serviceData = [
     }
 ]
 const ServiceList = () => {
+  const [tour, setTours] = useState([]);
+
+
+  const handleGetTours = () => {
+
+    getAllTour().then((res) => {
+      console.log('RESPONSE GET: ', res.data);
+
+      if (res.ok) {
+        setTours(res.data.data);
+      }
+    }).catch(err => {
+      console.log('error: ', err);
+    })
+
+  }
+
+
+  useEffect(() => {
+    handleGetTours();
+  }, []);
+
   return (
-    serviceData.map((item,index) => 
+    tour.map((item,index) => 
     <Col lg='3'>
     <div id="featured-services" className="featured-services">
       <div className="container">

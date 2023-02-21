@@ -14,9 +14,12 @@ import SearchResultList from "./pages/SearchResultList";
 import ContactUs from "./pages/ContactUs";
 import DashboardLanding from "./pages/dashboard/dashboardLanding";
 import Vehicle from "./pages/dashboard/vehicle";
-import BookingDriver from "./pages/dashboard/bookingDriver";
+import BookingVehicle from "./pages/dashboard/bookingVehicle";
 import { BrowserRouter } from "react-router-dom";
 import Protected from "./components/Protected";
+import CarDetail from "./pages/CarDetail";
+import Cars from "./pages/Cars";
+import Booking from "./pages/Booking";
 // import AddVehicle from "./pages/dashboard/AddVehicle";
 
 function App() {
@@ -29,11 +32,14 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/tours" element={<Tours />} />
+            <Route path="/cars" element={<Cars />} />
             <Route path="/tour/:id" element={<TourDetails />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/tour/search" element={<SearchResultList />} />
             <Route path="/contact" element={<ContactUs />} />
+            <Route path="/booking" element={<Protected><Booking /></Protected>} />
+            <Route path="/car/detail" element={<CarDetail />} />
             <Route
               path="/dashboard"
               element={
@@ -52,10 +58,10 @@ function App() {
             />
             
             <Route
-              path="/booking"
+              path="/bookings"
               element={
                 <Protected>
-                  <BookingDriver />
+                  <BookingVehicle />
                 </Protected>
               }
             />

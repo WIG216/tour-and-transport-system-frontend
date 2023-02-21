@@ -14,6 +14,7 @@ import callToAction from '../assets/images/gallery-01.jpg'
 import blogImage from '../assets/images/gallery-02.jpg'
 import { Layout } from '../components/Layout/Layout'
 import Cars from './Cars';
+import CarsCard from './CarsCard';
 
 const Home = () => {
   const [videoModalOpen, setVideoModalOpen] = useState(false);
@@ -54,50 +55,22 @@ const Home = () => {
         </Container>
       </div>
 
-      <section id="recent-blog-posts" class="recent-blog-posts">
+      <section id="blog" class="blog">
+        <div class="container mt-20" data-aos="fade-up">
 
-        <div class="container" data-aos="fade-up">
+          <div class="row g-5">
+          <Col lg="12" className='mb-5'>
+              <Subtitle subtitle={'Explore'} />
+              <h2 className="featured-tour-title font-fontName font-medium pt-2 text-4xl ">Our Vehicles</h2>
+            </Col>
+            <div class="col-lg-8">
 
-          <div class="section-header">
-            <h2>Drivers</h2>
-            <p>Recently Avialable Drivers</p>
-          </div>
-
-          <div class="row">
-
-            <Cars/>
-
-            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
-              <div class="post-box">
-                <div class="post-img"><img src={blogImage} class="img-fluid" alt="" /></div>
-                <div class="meta">
-                  <span class="post-date">Fri, September 05</span>
-                  <span class="post-author"> / Mario Douglas</span>
-                </div>
-                <h3 class="post-title">Et repellendus molestiae qui est sed omnis voluptates magnam</h3>
-                <p>Voluptatem nesciunt omnis libero autem tempora enim ut ipsam id. Odit quia ab eum assumenda. Quisquam omnis aliquid necessitatibus tempora consectetur doloribus...</p>
-                <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-              </div>
+              <CarsCard />
             </div>
-
-            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="600">
-              <div class="post-box">
-                <div class="post-img"><img src={blogImage} class="img-fluid" alt="" /></div>
-                <div class="meta">
-                  <span class="post-date">Tue, July 27</span>
-                  <span class="post-author"> / Lisa Hunter</span>
-                </div>
-                <h3 class="post-title">Quia assumenda est et veritatis aut quae</h3>
-                <p>Quia nam eaque omnis explicabo similique eum quaerat similique laboriosam. Quis omnis repellat sed quae consectetur magnam veritatis dicta nihil...</p>
-                <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-              </div>
-            </div>
-
           </div>
-
         </div>
-
       </section>
+
 
       <section id="cta" class="cta">
         <div class="container" data-aos="zoom-out">

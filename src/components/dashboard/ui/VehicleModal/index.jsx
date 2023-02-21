@@ -1,3 +1,3 @@
-// export { default as EditDriverModal} from "./EditDriver";
+export { default as EditVehicleModal} from "./EditVehicle";
 export { default as AddVehicleModal} from "./AddVehicleModal";
-// export { default as DeleteDriverModal} from "./DeleteDriver";
+export { default as DeleteVehicleModal} from "./DeleteVehicle";

@@ -14,11 +14,11 @@ function DashboardLanding() {
                                 <div className="flex flex-row -mx-3">
                                     <div className="flex-none w-2/3 max-w-full px-3">
                                         <div>
-                                            <p className="mb-0 font-sans text-sm font-semibold leading-normal uppercase dark:opacity-60">Today's Money</p>
-                                            <h5 className="mb-2 font-bold ">$53,000</h5>
+                                            <p className="mb-0 font-sans text-sm font-semibold leading-normal uppercase dark:opacity-60">Total Amount Obtained</p>
+                                            <h5 className="mb-2 font-bold ">0 CFA</h5>
                                             <p className="mb-0  dark:opacity-60">
-                                                <span className="text-sm font-bold leading-normal text-emerald-500">+55%</span>
-                                                since yesterday
+                                                <span className="text-sm font-bold leading-normal text-emerald-500">+0% </span>
+                                                since creation
                                             </p>
                                         </div>
                                     </div>
@@ -39,11 +39,10 @@ function DashboardLanding() {
                                 <div className="flex flex-row -mx-3">
                                     <div className="flex-none w-2/3 max-w-full px-3">
                                         <div>
-                                            <p className="mb-0 font-sans text-sm font-semibold leading-normal uppercase   dark:opacity-60">Today's Users</p>
-                                            <h5 className="mb-2 font-bold  ">2,300</h5>
+                                            <p className="mb-0 font-sans text-sm font-semibold leading-normal uppercase   dark:opacity-60">Total Users</p>
+                                            <h5 className="mb-2 font-bold  ">2</h5>
                                             <p className="mb-0   dark:opacity-60">
-                                                <span className="text-sm font-bold leading-normal text-emerald-500">+3%</span>
-                                                since last week
+                                                <span className="text-sm font-bold leading-normal text-emerald-500">+1%</span>
                                             </p>
                                         </div>
                                     </div>
@@ -65,10 +64,9 @@ function DashboardLanding() {
                                     <div className="flex-none w-2/3 max-w-full px-3">
                                         <div>
                                             <p className="mb-0 font-sans text-sm font-semibold leading-normal uppercase   dark:opacity-60">New Clients</p>
-                                            <h5 className="mb-2 font-bold  ">+3,462</h5>
+                                            <h5 className="mb-2 font-bold  ">0</h5>
                                             <p className="mb-0   dark:opacity-60">
                                                 <span className="text-sm font-bold leading-normal text-red-600">-2%</span>
-                                                since last quarter
                                             </p>
                                         </div>
                                     </div>
@@ -89,8 +87,8 @@ function DashboardLanding() {
                                 <div className="flex flex-row -mx-3">
                                     <div className="flex-none w-2/3 max-w-full px-3">
                                         <div>
-                                            <p className="mb-0 font-sans text-sm font-semibold leading-normal uppercase   dark:opacity-60">Sales</p>
-                                            <h5 className="mb-2 font-bold  ">$103,430</h5>
+                                            <p className="mb-0 font-sans text-sm font-semibold leading-normal uppercase   dark:opacity-60">Sales of Last Week</p>
+                                            <h5 className="mb-2 font-bold  ">1</h5>
                                             <p className="mb-0   dark:opacity-60">
                                                 <span className="text-sm font-bold leading-normal text-emerald-500">+5%</span>
                                                 than last month

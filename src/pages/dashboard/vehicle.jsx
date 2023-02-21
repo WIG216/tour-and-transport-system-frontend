@@ -10,7 +10,7 @@ import 'tippy.js/dist/tippy.css';
 import moment from 'moment';
 import { AiOutlineCopy } from 'react-icons/ai';
 import { FiEdit } from 'react-icons/fi';
-import { AddDriverModal, DeleteDriverModal, EditDriverModal } from '../../components/dashboard/ui/DriverModal/index';
+import { AddVehicleModal, DeleteVehicleModal, EditVehicleModal } from '../../components/dashboard/ui/VehicleModal/index';
 
 const rows = [
     {
@@ -50,7 +50,7 @@ function Vehicle() {
     const [deleteId, setDeleteId] = useState(null);
     const [updateId, setUpdateId] = useState(null);
 
-    const [drivers, setDrivers] = useState([]);
+    const [vehicles, setVehicles] = useState([]);
 
     const toggleAddModal = () => {
         console.log('toggle add modal')
@@ -65,12 +65,12 @@ function Vehicle() {
         setShowEditModal(!editModal);
     }
 
-    const handleGetDrivers = () => {
+    const handleGetVehicles = () => {
         
         getVehicles().then((res) => {
             console.log('RESPONSE GET: ', res.data);
             if (res.ok) {
-                setDrivers(res.data.data);
+                setVehicles(res.data.data);
             }
         }).catch(err => {
             console.log('error: ', err);
@@ -78,13 +78,13 @@ function Vehicle() {
 
     }
 
-    const handleDeleteDriver = () => {
-        console.log('DELETE Driver');
+    const handleDeleteVehicle = () => {
+        console.log('DELETE Vehicle');
         console.log(deleteId)
         deleteVehicle(deleteId).then((res) => {
             if (res.ok) {
                 toggleDeleteModal();
-                handleGetDrivers();
+                handleGetVehicles();
                 toast.success(res.message, {
                     pauseOnHover: false,
                     closeOnClick: true,
@@ -104,13 +104,13 @@ function Vehicle() {
         })
     }
 
-    const handleEditDriver = () => {
-        console.log('DELETE Driver');
+    const handleEditVehicle = () => {
+        console.log('DELETE Vehicle');
         console.log(updateId)
         updateVehicle(updateId).then((res) => {
             if (res.ok) {
                 toggleDeleteModal();
-                handleGetDrivers();
+                handleGetVehicles();
                 toast.success(res.message, {
                     pauseOnHover: false,
                     closeOnClick: true,
@@ -130,22 +130,22 @@ function Vehicle() {
         })
     }
 
-    const handleDriverAdded = () => {
-        handleGetDrivers();
+    const handleVehicleAdded = () => {
+        handleGetVehicles();
         toggleAddModal();
     }
-    const handleDriverUpdated = () => {
-        handleEditDriver();
+    const handleVehicleUpdated = () => {
+        handleEditVehicle();
         toggleEditModal();
     }
 
-    const handleDriverDeleted = () => {
-        handleDeleteDriver();
+    const handleVehicleDeleted = () => {
+        handleDeleteVehicle();
         toggleDeleteModal();
     }
 
     useEffect(() => {
-        handleGetDrivers();
+        handleGetVehicles();
     }, []);
     return (
         <Layout title="Vehicle">
@@ -173,7 +173,7 @@ function Vehicle() {
                     </thead>
 
                     <tbody className='border-t'>
-                        {drivers.map((data, index) =>
+                        {vehicles.map((data, index) =>
                             <tr className="bg-white border-b  dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                 <td className="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
                                     <span className=" px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none  text-slate-400">{index + 1}</span>
@@ -213,7 +213,7 @@ function Vehicle() {
                                             }} size={18} />
                                             </button>
                                         </Tippy>
-                                        <Tippy className='text-slate-500 text-sm font-semibold' content="Delete Driver" animation="fade">
+                                        <Tippy className='text-slate-500 text-sm font-semibold' content="Delete Vehicle" animation="fade">
                                             <button onClick={() => {
                                                 setDeleteId(data._id);
                                                 toggleDeleteModal();
@@ -227,9 +227,9 @@ function Vehicle() {
                     </tbody>
                 </table>
             </div>
-            {showAddModal && <AddDriverModal onDriverAdded={handleDriverAdded} onClose={toggleAddModal} />}
-            {editModal && <EditDriverModal onDriverAdded={handleDriverUpdated} onClose={toggleAddModal} />}
-            {deleteModal && <DeleteDriverModal onAccept={handleDeleteDriver} onCancel={toggleDeleteModal} />}
+            {showAddModal && <AddVehicleModal onVehicleAdded={handleVehicleAdded} onClose={toggleAddModal} />}
+            {editModal && <EditVehicleModal onVehicleAdded={handleVehicleUpdated} onClose={toggleAddModal} />}
+            {deleteModal && <DeleteVehicleModal onAccept={handleDeleteVehicle} onCancel={toggleDeleteModal} />}
         </Layout >
     );
 }

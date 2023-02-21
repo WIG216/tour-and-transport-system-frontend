@@ -61,12 +61,9 @@ function Login() {
 
 
     if (getToken() != null) {
-        if(isDriver())
+        if(isAdmin() || isDriver())
         {
             return <Navigate to="/dashboard" replace />
-        }else if(isAdmin()){
-            return <Navigate to="/dashboard" replace />
-
         }else{
             return <Navigate to="/home" replace />
         }
